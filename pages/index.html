@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu li {
+            margin: 0 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ff6347; 
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                text-align: center;
+                margin-left: 80px;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+        }
+
+         .task{
+           
+            margin:  50px auto ;
+             padding: 35px 25px ;
+            width: 32%;
+           background-color: #fff;
+           border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           
+         }
+
+
+         button{
+            background-color: #007bff;
+            color:#fff;
+            padding: 12px 15px;
+            /* margin-top: 30px; */
+            /* margin-left: 122px; */
+            border:none;
+            border-radius: 5px;
+            cursor:pointer
+         }
+
+         button:hover{
+            background-color:#0056b3 ;
+         }
+
+         input{
+            width: 80%;
+            padding:10px;
+            margin-left:10px;
+         }
+         label{
+            margin-left:10px ;
+            font-weight: bold;
+            
+         }
+
+
+         .side{
+            float: right;
+            list-style: none;
+            color: black;
+            margin-top: 20px;
+         }
+
+
+         .side button{
+             /* position: absolute; */
+            float: left;
+            margin-right: 10px;
+            box-sizing: border-box;
+         }
+         h1{
+            margin-left: 140px;
+         }
+
+
+    </style>
+</head>
+<body>
+    <ul class="side">
+    <a href="/login"><button id="login">Login</button></a>
+    <a href="/Register"><button id="register">Register</button></a>
+    <a href="/"><button id="logout">LogOut</button></a>
+
+    </ul>
+    <div class="header">
+        <h1>Task Manager</h1>
+        <ul class="menu">
+            <li><a href="/tm/create_task">Create Task</a></li>
+            <li><a href="/tm/find_task">Find Task</a></li>
+            <li><a href="/tm/all_task">All Tasks</a></li>
+            <li><a href="/tm/delete_task">Delete Task</a></li>
+            <li><a href="/tm/update_task">Update Task</a></li>
+        </ul>
+        
+    </div>
+    
+</body>
+
+
+<script>
+    const logout=document.getElementById("logout");
+    const login=document.getElementById("login");
+    const register=document.getElementById("register");
+
+
+window.onload = (event) => {
+  console.log(window.localStorage.getItem("email"));
+};
+
+logout.onclick=()=>{
+  localStorage.clear()
+}
+
+if(localStorage.getItem('email') == null){
+   logout.style.display="none";
+   login.style.display="block";
+    register.style.display="block";
+}
+else{
+    logout.style.display="block";
+    login.style.display="none";
+    register.style.display="none";
+}
+
+</script>
+</html>

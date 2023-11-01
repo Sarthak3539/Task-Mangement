@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+      
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 60px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="/data" method="POST" >
+        <br><br>
+        <label>name:</label> 
+        <input type="text" name="name" size="25px 40px">
+        <br><br>
+        <label>ph number:</label> 
+        <input type="tel" name="ph_num" size="25px 40px">
+        <br><br>
+        <label>email:</label> 
+        <input type="email" name="email" size="25px 40px">
+        <br><br>
+        <label>password:</label> 
+        <input type="password" name="password" id="password" onchange="check()"  size="25px 40px">
+        <label> conform password</label>
+        <input type="password" id="conformpassword" onchange="check()" size="25px 40px">
+
+        <br><br>
+
+        <button type="submit" onclick="data()" id="submit" disabled>submit</button>
+        
+    </form>
+</body>
+
+<script>
+    function check(){
+        var a=document.getElementById('password').value
+        var b=document.getElementById('conformpassword').value
+
+        if(a==b){
+            document.getElementById('submit').disabled = false;
+        
+        }
+        else{
+            document.getElementById('submit').disabled = true;
+            console.log("yess inside else");
+        }
+
+    }
+</script>
+
+
+</html>
